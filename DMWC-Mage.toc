@@ -1,6 +1,6 @@
 ## Interface: 11320
 ## Title: DoMeWhen Classic - Mage
-## Author: Fisker
+## Author: Kink 
 ## Notes: Mage Rotation for DoMeWhen Classic
 ## DefaultState: Disabled
 ## Dependencies: DoMeWhen-Classic
