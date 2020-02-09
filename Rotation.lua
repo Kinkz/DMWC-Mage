@@ -30,20 +30,34 @@ local function Wand()
         return true
     end
 end
-
+--Winterz
+local function UsePotion()
+    if Setting("Health Potion")
+	and GetItemCount(PotionID) >= 1 
+	and GetItemCooldown(PotionID) == 0 
+	and HP <= Setting("Health Potion HP") and Player.Combat
+	then
+				name = GetItemInfo(PotionID)
+				RunMacroText("/use " .. name)
+				return true
+	end
+end
 local function Defensive()
     if Setting("Ice Barrier") and Buff.IceBarrier:Remain() < 3 and Spell.IceBarrier:Cast(Player) then
-	    return true
-	end
+	return true
+    end	
     if Setting("Healthstone") and Player.HP < Setting("Healthstone HP") and (Item.MajorHealthstone:Use(Player) or Item.GreaterHealthstone:Use(Player) or Item.Healthstone:Use(Player) or Item.LesserHealthstone:Use(Player) or Item.MinorHealthstone:Use(Player)) then
         return true
     end
-	if Setting("Frost Nova") and Player.Moving and Target.Distance < 13 and Spell.FrostNova:Cast(Player) then
-		return true
-	end
-	if Setting("Cone of Cold") and Target.Facing and Target.Distance < 8 and select(2, Target:GetEnemies(8, 2)) >= Setting("Cone of Cold Units") and Spell.ConeOfCold:Cast(Player) then
-	  return true
-	end
+    if Setting("Health Potion") and Player.HP < Setting("Health Potion HP") and Item.HealthPotion:Use() and debug("Use Health Potion") then
+        return true
+    end		
+    if Setting("Frost Nova") and Player.Moving and Target.Distance < 13 and Spell.FrostNova:Cast(Player) then
+	return true
+    end
+    if Setting("Cone of Cold") and Target.Facing and Target.Distance < 8 and select(2, Target:GetEnemies(8, 2)) >= Setting("Cone of Cold Units") and Spell.ConeOfCold:Cast(Player) then
+        return true
+    end
 end
 
 local function AutoBuff()
