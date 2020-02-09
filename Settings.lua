@@ -35,6 +35,8 @@ function Mage.Settings()
     UI.AddHeader("Defensive")
     UI.AddToggle("Healthstone", nil, true)
     UI.AddRange("Healthstone HP", nil, 0, 100, 1, 35)
+    UI.AddToggle("Health Potion", nil, true)
+    UI.AddRange("Health Potion HP", nil, 0, 100, 1, 25)
     UI.AddHeader("Utility")
     UI.AddToggle("Polly", "Auto Polymorph non target enemies when solo", false, true)
 end
