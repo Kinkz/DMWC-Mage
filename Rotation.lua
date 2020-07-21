@@ -95,10 +95,10 @@ function Mage.Rotation()
         if Setting("Blizzard") and Target.Facing and not Player.Moving and Player.PowerPct >= Setting("Blizzard Mana") and select(2, Target:GetEnemies(8, 2)) >= Setting("Blizzard Units") and Spell.Blizzard:Cast(Target) then
             return true
         end
-        if Setting("Fireball") and Target.Facing and not Player.Moving and Player.PowerPct >= Setting("Fireball Mana") and (Target.TTD > Spell.Fireball:CastTime() or (Target.Distance > 5 and not DMW.Player.Equipment[18])) and (not Setting("Frostbolt") or Player.PowerPct < Setting("Frostbolt Mana") or Debuff.Frostbolt:Remain(Target) > Spell.Fireball:CastTime() or (Spell.Frostbolt:LastCast() and UnitIsUnit(Spell.Frostbolt.LastBotTarget, Target.Pointer))) and Spell.Fireball:Cast(Target) then
+        if Setting("Fireball") and Spell.Fireball:Exist() and Target.Facing and not Player.Moving and Player.PowerPct >= Setting("Fireball Mana") and (Target.TTD > Spell.Fireball:CastTime() or (Target.Distance > 5 and not DMW.Player.Equipment[18])) and (not Setting("Frostbolt") or Player.PowerPct < Setting("Frostbolt Mana") or Debuff.Frostbolt:Remain(Target) > Spell.Fireball:CastTime() or (Spell.Frostbolt:LastCast() and UnitIsUnit(Spell.Frostbolt.LastBotTarget, Target.Pointer))) and Spell.Fireball:Cast(Target) then
             return true
         end
-        if Setting("Frostbolt") and Target.Facing and not Player.Moving and Player.PowerPct >= Setting("Frostbolt Mana") and (Target.TTD > Spell.Frostbolt:CastTime() or (Target.Distance > 5 and not DMW.Player.Equipment[18])) and Spell.Frostbolt:Cast(Target) then
+        if Setting("Frostbolt") and Spell.Frostbolt:Exist() and Target.Facing and not Player.Moving and Player.PowerPct >= Setting("Frostbolt Mana") and (Target.TTD > Spell.Frostbolt:CastTime() or (Target.Distance > 5 and not DMW.Player.Equipment[18])) and Spell.Frostbolt:Cast(Target) then
             return true
         end
         if Setting("Fire Blast") and Target.Facing and Player.PowerPct >= Setting("Fire Blast Mana") and Spell.FireBlast:Cast(Target) then
